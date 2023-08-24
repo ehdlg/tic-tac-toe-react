@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
 import Square from './Square';
+import Button from './Button';
 import checkWinner from '../logic';
 
 const TURNS = ['X', 'O'];
@@ -34,6 +35,12 @@ function App() {
     console.log(newBoard);
   };
 
+  const restartGame = () => {
+    setBoard(Array(9).fill(null));
+    setWinner(null);
+    setTurn(0);
+  };
+
   return (
     <>
       <main className='board'>
@@ -56,10 +63,21 @@ function App() {
           <div className='current-turn'>
             <h2>Current turn: </h2>
             <Square className='square'>{TURNS[turn % 2]}</Square>
+            <Button className='restart-button' onClick={restartGame}>
+              Restart game
+            </Button>
           </div>
         )}
 
-        {winner && <div className='winner-modal'>Winner is: {winner}!</div>}
+        {winner && (
+          <div className='winner-modal'>
+            <h3>Winner is:</h3> <br />
+            <Square className='square-winner'>{winner}</Square>
+            <Button className='restart-button' onClick={restartGame}>
+              Restart game
+            </Button>
+          </div>
+        )}
       </main>
     </>
   );
