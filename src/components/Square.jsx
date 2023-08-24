@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
 
-function Square({ children, className }) {
-  const [count, setCount] = useState(0);
-
+function Square({ children, className, updateBoard, index }) {
   const handleClick = () => {
-    setCount((count) => (count = count + 1));
+    updateBoard(index);
   };
+
   return (
     <>
-      <div className={className}>{children}</div>
+      <div className={className} onClick={handleClick}>
+        {children}
+      </div>
     </>
   );
 }
