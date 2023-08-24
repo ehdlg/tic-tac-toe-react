@@ -10,7 +10,8 @@ body {
   color: #fff;
 }
 
-.square {
+.square,
+.square-winner {
   width: 100px;
   height: 100px;
   border: 2px solid #fff;
@@ -41,8 +42,10 @@ body {
 
 .winner-modal {
   position: fixed;
+  text-align: center;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   top: 50%;
   left: 50%;
@@ -52,7 +55,7 @@ body {
   max-width: 800px; /* Limitar el ancho máximo */
   border-radius: 2rem;
   border: 1px solid #fff;
-  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  background-color: rgba(0, 0, 0, 0.9); /* Fondo semitransparente */
   padding: 1.5rem; /* Espaciado interno */
   text-align: center; /* Centrar el texto horizontalmente */
   font-size: 3rem;
@@ -67,4 +70,21 @@ body {
 
 .current-turn .square {
   background-color: #747bff;
+}
+
+.restart-button {
+  background-color: #747bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border: none; /* Borde del botón */
+  border-radius: 4px; /* Borde redondeado */
+  font-size: 1rem; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+  margin-top: 1rem; /* Espaciado superior */
+}
+
+.restart-button:hover {
+  background-color: #747bff; /* Cambia el color de fondo al pasar el cursor */
+  transform: scale(1.05); /* Escala ligeramente el botón al pasar el cursor */
 }
